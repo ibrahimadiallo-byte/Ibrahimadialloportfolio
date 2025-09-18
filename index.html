@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The World of Brima</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <header>
+        <nav class="container" aria-label="Primary">
+            <ul role="menubar">
+                <li role="none"><a role="menuitem" href="#home" data-page="home" class="nav-link" aria-current="page">Home</a></li>
+                <li role="none"><a role="menuitem" href="#skills" data-page="skills" class="nav-link">Skills</a></li>
+                <li role="none"><a role="menuitem" href="#experience" data-page="experience" class="nav-link">Experience</a></li>
+                <li role="none"><a role="menuitem" href="#interests" data-page="interests" class="nav-link">Interests</a></li>
+                <li role="none"><a role="menuitem" href="#about" data-page="about" class="nav-link">About &amp; Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main" class="container" tabindex="-1">
+        <!-- Home Page -->
+        <section id="home" class="page active" aria-labelledby="home-heading">
+            <div class="hero-section">
+                <h1 id="home-heading">The World of Brima</h1>
+                <p>You have now entered a new world — my digital space where you can follow my creative journey and edits.</p>
+            </div>
+
+            <div class="video-upload-section" aria-labelledby="video-heading">
+                <h2 id="video-heading">Brima Editing</h2>
+                <div class="video-wrap" role="region" aria-label="Featured edit video">
+                    <video
+                        id="featuredVideo"
+                        src="brima video/843A0091.MP4"
+                        width="640"
+                        height="360"
+                        controls
+                        muted
+                        loop
+                        playsinline
+                        poster="brima video/poster.jpg"
+                        preload="metadata"
+                    >
+                        Your browser doesn't support embedded videos. 
+                        <a href="brima video/843A0091.MP4" download>Download the video</a>.
+                    </video>
+                </div>
+                <p class="video-caption">Enjoy the featured edit!</p>
+            </div>
+        </section>
+
+        <!-- Skills Page -->
+        <section id="skills" class="page" aria-labelledby="skills-heading">
+            <h1 id="skills-heading">The World of Brima</h1>
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <ul>
+                        <li>Video editing (Premiere, DaVinci)</li>
+                        <li>Color grading</li>
+                        <li>Motion graphics (After Effects)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Collaboration</li>
+                        <li>Problem solving</li>
+                        <li>Time management</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Page -->
+        <section id="experience" class="page" aria-labelledby="exp-heading">
+            <h1 id="exp-heading">The World of Brima</h1>
+            <h2>Experience</h2>
+            <div class="experience-item">
+                <h3>Project/Job Title</h3>
+                <p class="date">Date/Duration</p>
+                <p>Description of the project or job. What you did, technologies used, and outcomes.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Project/Job Title</h3>
+                <p class="date">Date/Duration</p>
+                <p>Description of the project or job. What you did, technologies used, and outcomes.</p>
+            </div>
+        </section>
+
+        <!-- Interests Page -->
+        <section id="interests" class="page" aria-labelledby="int-heading">
+            <h1 id="int-heading">The World of Brima</h1>
+            <h2>Interests &amp; Hobbies</h2>
+            <div class="interests-container">
+                <div class="interest-item">
+                    <h3>Interest Category</h3>
+                    <p>Description of your interest or hobby. Why you enjoy it, how long you've been doing it, etc.</p>
+                </div>
+                <div class="interest-item">
+                    <h3>Interest Category</h3>
+                    <p>Description of your interest or hobby. Why you enjoy it, how long you've been doing it, etc.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About & Contact Page -->
+        <section id="about" class="page" aria-labelledby="about-heading">
+            <h1 id="about-heading">The World of Brima</h1>
+            <h2>About Me</h2>
+            <div class="content">
+                <div class="profile-image" aria-hidden="false">
+                    <img src="https://via.placeholder.com/200" alt="Profile picture">
+                </div>
+                <div class="about-text">
+                    <p>Welcome to my portfolio! I am <strong>Brima</strong>, a creative editor and visual storyteller.</p>
+                    <p>This is where you can add more details about your background, education, and professional goals.</p>
+                </div>
+            </div>
+
+            <h2>Contact Me</h2>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+                <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">linkedin.com/in/yourprofile</a></p>
+                <p>GitHub: <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">github.com/yourusername</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="container">
+        <p>&copy; 2025 The World of Brima. All rights reserved.</p>
+    </footer>
+
+    <script>
+        (function () {
+            // Grab links & pages
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+
+            function activatePage(pageId, clickedLink) {
+                pages.forEach(p => p.classList.toggle('active', p.id === pageId));
+                navLinks.forEach(link => {
+                    const isActive = link.dataset.page === pageId;
+                    if (isActive) {
+                        link.setAttribute('aria-current', 'page');
+                    } else {
+                        link.removeAttribute('aria-current');
+                    }
+                });
+
+                // Move keyboard focus to main content for accessibility
+                const main = document.getElementById('main');
+                if (main) {
+                    main.focus({ preventScroll: true });
+                }
+            }
+
+            // Attach event handlers (click & keyboard)
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (ev) {
+                    ev.preventDefault();
+                    const page = this.dataset.page;
+                    activatePage(page, this);
+                    // update hash without scrolling
+                    if (history && history.replaceState) {
+                        history.replaceState(null, '', '#' + page);
+                    } else {
+                        location.hash = page;
+                    }
+                });
+
+                link.addEventListener('keydown', function (ev) {
+                    // Allow Enter/Space to activate link when focused
+                    if (ev.key === 'Enter' || ev.key === ' ') {
+                        ev.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+
+            // If a hash is present on load, activate that page
+            const initialHash = (location.hash || '').replace('#', '');
+            if (initialHash) {
+                const match = Array.from(navLinks).find(l => l.dataset.page === initialHash);
+                if (match) activatePage(initialHash, match);
+            }
+        })();
+    </script>
+</body>
+</html>
