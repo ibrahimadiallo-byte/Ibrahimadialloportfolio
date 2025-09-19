@@ -118,22 +118,46 @@
         <!-- About & Contact Page -->
         <section id="about" class="page" aria-labelledby="about-heading">
             <h1 id="about-heading">The World of Brima</h1>
-            <h2>About Me</h2>
-            <div class="content">
-                <div class="profile-image" aria-hidden="false">
-                    <img src="https://via.placeholder.com/200" alt="Profile picture">
-                </div>
-                <div class="about-text">
-                    <p>Welcome to my portfolio! I am <strong>Brima</strong>, a creative editor and visual storyteller.</p>
-                    <p>This is where you can add more details about your background, education, and professional goals.</p>
-                </div>
-            </div>
 
-            <h2>Contact Me</h2>
-            <div class="contact-info">
-                <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-                <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">linkedin.com/in/yourprofile</a></p>
-                <p>GitHub: <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">github.com/yourusername</a></p>
+            <div class="about-grid">
+                <div class="profile-card">
+                    <img src="https://via.placeholder.com/340" alt="Brima profile picture" class="profile-large">
+                    <h2>Brima</h2>
+                    <p class="muted">Creative Editor & Visual Storyteller</p>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="about-card">
+                    <h2>About Me</h2>
+                    <p>Hi — I'm Brima. I create edits, color grade footage, and craft visual narratives that elevate stories. I enjoy collaborating across disciplines and shipping polished, cinematic content.</p>
+                    <p>Experience: Video editing, color grading, motion graphics, and post-production workflows. Available for freelance and collaborative projects.</p>
+
+                    <h3>Contact</h3>
+                    <form id="contactForm" class="contact-form" novalidate>
+                        <div class="form-row">
+                            <label for="name">Your name</label>
+                            <input id="name" name="name" type="text" required minlength="2" placeholder="First and last name">
+                        </div>
+                        <div class="form-row">
+                            <label for="email">Email</label>
+                            <input id="email" name="email" type="email" required placeholder="you@example.com">
+                        </div>
+                        <div class="form-row">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Tell me about your project"></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn">Send message</button>
+                            <button type="button" id="clearBtn" class="btn muted">Clear</button>
+                        </div>
+                        <div id="formFeedback" role="status" aria-live="polite" class="form-feedback"></div>
+                    </form>
+
+                    <p class="muted">Or email me directly at <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+                </div>
             </div>
         </section>
     </main>
@@ -231,6 +255,54 @@
             } else {
                 window.addEventListener('DOMContentLoaded', tryPlay, {once:true});
             }
+        })();
+    </script>
+    <script>
+        // Contact form handling: validate and fallback to mailto
+        (function(){
+            const form = document.getElementById('contactForm');
+            const feedback = document.getElementById('formFeedback');
+            const clearBtn = document.getElementById('clearBtn');
+
+            if (!form) return;
+
+            function showMessage(msg, isError){
+                feedback.textContent = msg;
+                feedback.style.color = isError ? '#ffb3b3' : 'var(--muted)';
+            }
+
+            form.addEventListener('submit', function(ev){
+                ev.preventDefault();
+                const name = form.name.value.trim();
+                const email = form.email.value.trim();
+                const message = form.message.value.trim();
+
+                if (!name || !email || !message){
+                    showMessage('Please complete all fields.', true);
+                    return;
+                }
+                // Basic email check
+                if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){
+                    showMessage('Please enter a valid email address.', true);
+                    return;
+                }
+
+                // Try to send via a server endpoint if configured (left as TODO)
+                // Fallback: open mailto link
+                const subject = encodeURIComponent('Website contact from ' + name);
+                const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
+                const mailto = `mailto:your.email@example.com?subject=${subject}&body=${body}`;
+
+                // Open mail client in new window/tab
+                window.location.href = mailto;
+                showMessage('Opened your email client. If it did not open, please email your message to your.email@example.com');
+                form.reset();
+            });
+
+            clearBtn.addEventListener('click', function(){
+                form.reset();
+                feedback.textContent = '';
+            });
         })();
     </script>
 </body>
