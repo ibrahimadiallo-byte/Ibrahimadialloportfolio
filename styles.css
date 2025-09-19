@@ -22,14 +22,10 @@ body {
 /* Background video styles */
 .bg-video{
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* ensure the video always covers the viewport */
-    min-width: 100vw;
-    min-height: 100vh;
-    width: auto;
-    height: auto;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
     z-index: -2;
     opacity: 0.85;
