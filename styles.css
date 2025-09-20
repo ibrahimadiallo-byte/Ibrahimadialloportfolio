@@ -171,3 +171,12 @@ footer{background:rgba(0,0,0,0.9);color:var(--muted);text-align:center;padding:2
 .hobby-text{font-weight:600}
 
 .hobby-icon svg{width:28px;height:28px;color:var(--muted)}
+
+/* Tabs for experience */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.tab-btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:6px;color:var(--muted);cursor:pointer}
+.tab-btn[aria-selected="true"]{background:rgba(255,255,255,0.04);color:white;border-color:rgba(255,255,255,0.12)}
+.tab-panels{margin-top:14px}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+.experience-video video{width:100%;max-width:900px;border-radius:10px}
