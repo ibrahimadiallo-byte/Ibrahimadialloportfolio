@@ -163,3 +163,11 @@ footer{background:rgba(0,0,0,0.9);color:var(--muted);text-align:center;padding:2
 @media (max-width:900px){
     .about-grid{grid-template-columns:1fr;}
 }
+
+/* Hobbies list */
+.hobby-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.hobby-item{display:flex;align-items:center;gap:12px;padding:12px;border-radius:8px;background:rgba(255,255,255,0.03)}
+.hobby-icon{font-size:1.5rem;line-height:1}
+.hobby-text{font-weight:600}
+
+.hobby-icon svg{width:28px;height:28px;color:var(--muted)}
